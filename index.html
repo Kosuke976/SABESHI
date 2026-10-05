@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>鯖江市 浸水対策工事助成事業 浸水想定区域 町名検索</title>
+<style>
+:root{--bg:#f4f5f7;--card:#fff;--fg:#1a1d21;--sub:#5a6270;--line:#d5d9e0;--pt:#8a5a00;--ptbg:#fff1d6;--bad:#a61b1b;--badbg:#fde8e8;--ac:#1f4e8c;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14171b;--card:#1d2127;--fg:#eef0f3;--sub:#9aa3b0;--line:#363c45;--pt:#f2c46b;--ptbg:#3a2c0d;--bad:#ff9a9a;--badbg:#3b1717;--ac:#7fb0ee}}
+:root[data-theme="dark"]{--bg:#14171b;--card:#1d2127;--fg:#eef0f3;--sub:#9aa3b0;--line:#363c45;--pt:#f2c46b;--ptbg:#3a2c0d;--bad:#ff9a9a;--badbg:#3b1717;--ac:#7fb0ee}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,"Hiragino Sans","Noto Sans JP","Yu Gothic",Meiryo,sans-serif;font-size:18px;line-height:1.6}
+main{max-width:640px;margin:0 auto;padding:16px}
+h1{margin:0 0 12px;font-size:20px;line-height:1.4}
+h1 span{display:block;font-size:26px;font-weight:700}
+.warn{background:var(--ptbg);color:var(--pt);border:2px solid var(--pt);border-radius:8px;padding:10px 12px;font-size:16px;font-weight:600;margin-bottom:14px}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+input{flex:1 1 100%;font-size:20px;padding:14px;border:2px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg)}
+input:focus{outline:none;border-color:var(--ac)}
+button{flex:1;font-size:18px;padding:12px;border-radius:8px;border:2px solid var(--ac);background:var(--ac);color:#fff;font-weight:700}
+button.sub{background:var(--card);color:var(--ac)}
+#out{margin-top:16px}
+.panel{border-radius:10px;padding:16px;margin-bottom:12px;border:2px solid}
+.pt{background:var(--ptbg);border-color:var(--pt);color:var(--pt)}
+.bad{background:var(--badbg);border-color:var(--bad);color:var(--bad)}
+.big{font-size:24px;font-weight:700;line-height:1.35}
+.area{font-size:20px;font-weight:700;margin-top:6px}
+.note{font-size:16px;margin-top:8px;font-weight:600}
+table{width:100%;border-collapse:collapse;margin:0 0 12px;background:var(--card);color:var(--fg)}
+th,td{text-align:left;padding:8px 10px;border:1px solid var(--line);font-size:17px;vertical-align:top}
+th{width:42%;font-weight:600;color:var(--sub)}
+h2{font-size:20px;margin:8px 0}
+.card{display:flex;justify-content:space-between;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin-bottom:8px}
+.card b{font-size:20px}
+.chip{white-space:nowrap;font-size:14px;color:var(--sub)}
+.foot{font-size:14px;color:var(--sub);margin-top:16px}
+a{color:var(--ac)}
+details{margin-top:16px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+summary{font-weight:700;cursor:pointer}
+.g{margin-top:10px;font-size:16px}
+</style>
+</head>
+<body>
+<main>
+<h1>鯖江市 浸水対策工事助成事業<span>浸水想定区域 町名検索</span></h1>
+<div class="warn">町名単位の一次判定です。同じ町内でも区域外の場所があります。最終はハザードマップをご確認ください。</div>
+<div class="row">
+<input id="q" type="search" autocomplete="off" placeholder="町名を入力してください（例：本町、水落町、河和田町）">
+<button id="go">検索</button><button id="rs" class="sub">リセット</button>
+</div>
+<div id="out"></div>
+<p class="foot">※この検索結果は、鯖江市「土砂災害・洪水ハザードマップ」（想定最大規模降雨）をもとに整理した「浸水想定区域にかかる町名一覧」にもとづく一次判定です。助成事業の対象区域そのものを町名で確定した一覧ではありません。最終はハザードマップをご確認ください。<br>
+<a href="https://www.city.sabae.fukui.jp/anzen_anshin/bosai/hazardmap/guidbook.html" target="_blank" rel="noopener">鯖江市 災害時サポートガイド（ハザードマップ）</a></p>
+<details><summary>制度の概要（鯖江市公式ページより）</summary>
+<div class="g">防水板設置工事：補助率4分の3・限度額30万円／住宅かさ上げ工事：補助率4分の3・限度額300万円（かさ上げは過去に浸水被害を受けた住宅が対象）。対象は、ハザードマップまたは公共下水道区域で浸水のおそれがある区域に住宅を所有する方、または過去に浸水被害を受けた住宅を所有する方。工事前の申請が必要です。※公式ページの最終更新は2017年3月です。最新内容は土木課（0778-53-2246）へご確認ください。</div></details>
+<details><summary>一覧の全掲載内容を見る（76件）</summary><div id="all" class="g"></div></details>
+</main>
+<script>
+// 添付一覧「市内統合・重複除去リスト」76件。地区は「地区別」リストの掲載に従う（東/中/西）
+const E="上河内町,下新庄町,中野町,出口木引区,北中町,原,寺中町,尾花町,曲木,東清水町,松成,松成町,樋口,橋立町,河和田町,片山町,磯部町,舟枝町,花出,落井町,大野町".split(",");
+const C="平井町,鳥井町,下司町,熊田町,東米岡,神明町,御幸町,神中町,丸山町,北野町,水落町,西山町,長泉寺町,五郎丸町,宮前,上鯖江町,上鯖江,住吉町,舟津町,東鯖江,新横江,横江町,日の出町,深江町,屋形町,桜町,本町,旭町,柳町,有定町,吉江町,杉本町,田所町,糺町,下河端町,上河端町".split(",");
+const W="西番町,石田下町,石田中町,小泉町,大倉町,吉田町,平井町,冬島町,二丁掛町,持明寺町,西大井町,下野田町,上野田町,上氏家町,下氏家町,鳥井町,下司町,熊田町,当田町,田村町,川去町,石田上町,東米岡,鳥羽,神明町,御幸町,神中町,丸山町,北野町,水落町,長泉寺町,五郎丸町,宮前,上鯖江町,上鯖江,住吉町,舟津町,新横江,横江町,深江町,屋形町,桜町,本町,旭町,柳町,有定町,吉江町,杉本町,田所町,糺町".split(",");
+const U="上氏家町,上河内町,上河端町,上野田町,上鯖江,上鯖江町,下司町,下新庄町,下氏家町,下河端町,下野田町,中野町,丸山町,二丁掛町,五郎丸町,住吉町,冬島町,出口木引区,北中町,北野町,原,吉江町,吉田町,大倉町,大野町,宮前,寺中町,小泉町,尾花町,屋形町,川去町,平井町,当田町,御幸町,持明寺町,新横江,日の出町,旭町,曲木,有定町,本町,杉本町,東清水町,東米岡,東鯖江,松成,松成町,柳町,桜町,樋口,横江町,橋立町,水落町,河和田町,深江町,熊田町,片山町,田所町,田村町,石田上町,石田下町,石田中町,磯部町,神中町,神明町,糺町,舟枝町,舟津町,花出,落井町,西大井町,西山町,西番町,長泉寺町,鳥井町,鳥羽".split(",");
+const norm=s=>s.normalize('NFKC').replace(/\s/g,'').replace(/[ァ-ヶ]/g,c=>String.fromCharCode(c.charCodeAt(0)-96));
+const DATA=U.map(area=>({area,key:norm(area),d:[["東",E],["中",C],["西",W]].filter(x=>x[1].includes(area)).map(x=>x[0]+"地区")}));
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const NOTE="町内でも浸水想定区域外となる場所があります。最終はハザードマップをご確認ください。";
+
+function render(raw){
+ const o=document.getElementById('out');
+ let n=norm(raw).replace(/^福井県/,'').replace(/^鯖江市/,'').replace(/[一二三四五六七八九十]+丁目.*$/,'').replace(/[\d~-].*$/,'').replace(/丁目$/,'');
+ if(!n){o.innerHTML='';return}
+ const ex=DATA.filter(e=>e.key===n),ot=DATA.filter(e=>e.key!==n&&e.key.includes(n));
+ let h='';
+ if(ex.length){
+  ex.forEach(e=>{h+=`<div class="panel pt"><div class="big">△ 浸水想定区域にかかる町名です（一次判定）</div>
+  <div class="area">${esc(e.area)}（${e.d.join('・')}）</div><div class="note">${NOTE}</div></div>
+  <table><tr><th>検索した町名</th><td>${esc(raw)}</td></tr><tr><th>一覧への掲載</th><td>掲載あり（要確認）</td></tr><tr><th>一覧上の登録名称</th><td>${esc(e.area)}</td></tr><tr><th>掲載地区</th><td>${e.d.join('・')}</td></tr></table>`});
+  if(ot.length)h+=`<h2>同じ文字を含む他の掲載：${ot.length}件</h2>`+ot.map(card).join('');
+ }else if(ot.length){
+  h+=`<h2>検索結果：${ot.length}件</h2>`+ot.map(card).join('')+`<div class="note">${NOTE}</div>`;
+ }else{
+  h+=`<div class="panel bad"><div class="big">× 一覧に掲載なし</div><div class="area" style="font-size:18px">該当する町名が一覧に見つかりませんでした。</div>
+  <div class="note">一覧に掲載がなくても、助成の対象外と確定するものではありません（過去に浸水被害を受けた住宅などの要件があります）。最終はハザードマップをご確認ください。</div></div>
+  <table><tr><th>検索した町名</th><td>${esc(raw)}</td></tr><tr><th>一覧への掲載</th><td>掲載なし</td></tr></table>`;
+ }
+ o.innerHTML=h;
+}
+const card=e=>`<div class="card"><b>${esc(e.area)}</b><span class="chip">${e.d.join('・')}</span></div>`;
+const q=document.getElementById('q');
+q.addEventListener('input',()=>render(q.value));
+document.getElementById('go').onclick=()=>render(q.value);
+q.addEventListener('keydown',e=>{if(e.key==='Enter')render(q.value)});
+document.getElementById('rs').onclick=()=>{q.value='';render('');q.focus()};
+document.getElementById('all').innerHTML=DATA.map(e=>esc(e.area)+'（'+e.d.join('・').replace(/地区/g,'')+'）').join('、');
+</script>
+</body>
+</html>
